@@ -1,100 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getRates, setFromCurrency} from '../../actions';
+import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
 import {bindActionCreators} from 'redux';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      fromValue: '',
-      fromCurrency: props.currency.fromCurrency,
-      toValue: '',
-      toCurrency: props.currency.toCurrency,
-      inputOnFocus: 'fromCurrency'
-    };
-  }
-
+  /*
   componentDidMount() {
     this.fromValueInput.focus();
   }
+  */
 
-  handleFromValue = event => {
-    const {rates} = this.props;
-    const {toCurrency} = this.state;
-    const fromValue = event.target.value;
-    const toValue = fromValue * rates.rates[toCurrency];
+  handleFromValueChange = event => this.props.setFromValueFunc(event.target.value);
 
-    this.setState({
-      fromValue: fromValue ? parseInt(fromValue, 10) : '',
-      toValue: toValue !== 0 ? toValue.toFixed(2) : '',
-      inputOnFocus: 'fromCurrency'
-    });
-  };
+  handleToValueChange = event => this.props.setToValueFunc(event.target.value);
 
-  handleToValue = event => {
-    const {rates} = this.props;
-    const {toCurrency} = this.state;
-    const toValue = event.target.value;
-    const fromValue = toValue / rates.rates[toCurrency];
+  handleFromCurrency = event => this.props.setFromCurrencyFunc(event.target.value);
 
-    this.setState({
-      fromValue: fromValue !== 0 ? fromValue.toFixed(2) : '',
-      toValue: toValue ? parseInt(toValue, 10) : '',
-      inputOnFocus: 'toCurrency'
-    });
-  };
+  handleToCurrencyChange = event => this.props.setToCurrencyFunc(event.target.value);
 
-  handleFromCurrency = event => {
-    const {setFromCurrencyFunc, getRatesFunc} = this.props;
-    const {fromValue} = this.state;
-    const fromCurrency = event.target.value;
-    const toCurrency = this.state.toCurrency === fromCurrency ?
-      this.state.fromCurrency :
-      this.state.toCurrency;
-
-    this.fixFocus();
-
-    setFromCurrencyFunc(fromCurrency);
-
-    getRatesFunc(fromCurrency)
-      .then(result => {
-        const toValue = fromValue * result.rates.rates[toCurrency];
-
-        this.setState({
-          fromCurrency,
-          toValue: toValue !== 0 ? toValue.toFixed(2) : '',
-          toCurrency
-        });
-      });
-  };
-
-  handleToCurrency = event => {
-    const {getRatesFunc, setFromCurrencyFunc} = this.props;
-    const {fromValue} = this.state;
-    const toCurrency = event.target.value;
-
-    const fromCurrency = this.props.currency.fromCurrency === toCurrency ?
-      this.state.toCurrency :
-      this.props.currency.fromCurrency;
-
-    this.fixFocus();
-
-    setFromCurrencyFunc(fromCurrency);
-
-    getRatesFunc(fromCurrency)
-      .then(result => {
-        const toValue = fromValue * result.rates.rates[toCurrency];
-
-        this.setState({
-          fromValue,
-          fromCurrency,
-          toCurrency,
-          toValue: toValue !== 0 ? toValue.toFixed(2) : ''
-        });
-      });
-  };
+  handleExchange = () => this.props.exchangeFunc();
 
   fixFocus = () => {
     if (this.state.inputOnFocus === 'fromCurrency') {
@@ -105,8 +29,16 @@ class Form extends Component {
   };
 
   render() {
-    const {fromValue, fromCurrency, toValue, toCurrency} = this.state;
-    const {rates} = this.props;
+    const {rates, active, balance} = this.props;
+    const {fromValue, fromCurrency, toValue, toCurrency} = active;
+
+    console.log('balance', balance); //eslint-disable-line
+
+    const renderRates = rates.date && rates.rates[toCurrency] ? (
+      <span>RATE: 1{rates.base} = {toCurrency}{rates.rates[toCurrency].toFixed(4)}</span>
+    ) : (
+      <span>loading...</span>
+    );
 
     return (
       <div>
@@ -125,25 +57,24 @@ class Form extends Component {
             name="fromValue"
             type="number"
             value={fromValue}
-            onChange={this.handleFromValue}
+            onChange={this.handleFromValueChange}
             placeholder={0}
             ref={input => { this.fromValueInput = input; }}
             style={{textAlign: 'right', border: 'none', outline: 'none'}}
             disabled={!rates.date}
           />
+          <span>
+            balance: {balance[fromCurrency]}
+          </span>
         </div>
         <div>
-          {
-            rates.date && (
-              <span>RATE: 1{rates.base} = {toCurrency}{rates.rates[toCurrency].toFixed(4)}</span>
-            )
-          }
+          {renderRates}
         </div>
         <div>
           <select
             name="toCurrency"
             value={toCurrency}
-            onChange={this.handleToCurrency}
+            onChange={this.handleToCurrencyChange}
             disabled={!rates.date}
           >
             <option value="GBP">GBP</option>
@@ -154,13 +85,22 @@ class Form extends Component {
             name="toValue"
             type="number"
             value={toValue}
-            onChange={this.handleToValue}
+            onChange={this.handleToValueChange}
             placeholder={0}
             ref={input => { this.toValueInput = input; }}
             style={{textAlign: 'right', border: 'none', outline: 'none'}}
             disabled={!rates.date}
           />
+          <span>
+            balance: {balance[toCurrency]}
+          </span>
         </div>
+        <button
+          disabled={balance[fromCurrency] < fromValue || balance[fromCurrency] === 0}
+          onClick={this.handleExchange}
+        >
+          exchange
+        </button>
       </div>
     );
   }
@@ -168,13 +108,17 @@ class Form extends Component {
 
 const mapStateToProps = state => ({
   rates: state.rates,
-  currency: state.currency
+  active: state.active,
+  balance: state.balance
 });
 
 const mapDispatchToProps = dispatch => {
   return {
     setFromCurrencyFunc: bindActionCreators(setFromCurrency, dispatch),
-    getRatesFunc: bindActionCreators(getRates, dispatch)
+    setFromValueFunc: bindActionCreators(setFromValue, dispatch),
+    setToCurrencyFunc: bindActionCreators(setToCurrency, dispatch),
+    setToValueFunc: bindActionCreators(setToValue, dispatch),
+    exchangeFunc: bindActionCreators(exchange, dispatch),
   };
 };
 

@@ -12,9 +12,9 @@ class App extends Component {
   }
 
   getRatesLoop = () => {
-    const {getRatesFunc, currency} = this.props;
+    const {getRatesFunc, active} = this.props;
 
-    getRatesFunc(currency.fromCurrency);
+    getRatesFunc(active.fromCurrency);
     return this.getRatesLoop;
   };
 
@@ -33,7 +33,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   rates: state.rates,
-  currency: state.currency
+  active: state.active
 });
 
 const mapDispatchToProps = dispatch => {

@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
 
 import rates from './rates.reducer';
-import currency from './currency.reducer';
+import active from './active.reducer';
+import balance from './balance.reducer';
 
 const rootReducer = combineReducers({
   rates,
-  currency
+  active,
+  balance
 });
 
 export default rootReducer;

@@ -1,7 +1,14 @@
 export default {
   rates: {},
-  currency: {
+  active: {
     fromCurrency: 'GBP',
-    toCurrency: 'EUR'
+    fromValue: 0,
+    toCurrency: 'EUR',
+    toValue: 0
+  },
+  balance: {
+    GBP: 15,
+    EUR: 0,
+    USD: 0
   }
 };
