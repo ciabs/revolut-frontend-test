@@ -7,8 +7,9 @@ import MenuItem from 'material-ui/MenuItem';
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
 import {
   Balance,
-  Container, ExchangeButton, FromContainer, FormWrapper, Rates, ToContainer, ValueInput
+  Container, ExchangeButton, FromContainer, FormWrapper, ToContainer, ValueInput
 } from './Form.styles';
+import Rates from '../Rates/Rates';
 
 class Form extends Component {
   /*
@@ -67,13 +68,11 @@ class Form extends Component {
           <Balance>
             Balance: {fromCurrency}{balance[fromCurrency].toFixed(2)}
           </Balance>
-          <Rates>
-            {rates.date && rates.rates[toCurrency] ? (
-              <span>{fromCurrency}1 = {toCurrency}{rates.rates[toCurrency].toFixed(4)}</span>
-            ) : (
-              <span>loading...</span>
-            )}
-          </Rates>
+          <Rates
+            toCurrency={toCurrency}
+            fromCurrency={fromCurrency}
+            rates={rates}
+          />
         </FromContainer>
         <ToContainer>
           <FormWrapper>

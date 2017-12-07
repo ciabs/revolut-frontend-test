@@ -4,6 +4,8 @@ import {Provider} from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import 'normalize.css';
+import 'font-awesome/css/font-awesome.css';
+
 import App from './App';
 import configureStore from './store/config.store';
 import DevTools from './components/DevTools/DevTools';
