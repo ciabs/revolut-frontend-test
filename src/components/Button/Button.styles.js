@@ -5,14 +5,15 @@ import {
   exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor
 } from '../../styles/constants';
 
-export const Button = styled.button`
+export const Container = styled.button`
+  cursor: pointer;
   background-color: ${exchangeBackgroundColorEnabled};
   color: ${exchangeColor};
   border: none;
-  width: 60%;
-  padding: 10px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
+  width: 80%;
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.15);
   outline: none;
   position: absolute;
   bottom: 20px;

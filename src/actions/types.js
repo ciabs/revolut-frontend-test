@@ -9,4 +9,6 @@ export const EXCHANGE = 'EXCHANGE';
 
 export const SET_RATES_LOADING = 'SET_RATES_LOADING';
 
+export const SHOW_SUCCESS_MODAL = 'SHOW_SUCCESS_MODAL';
+
 export const SET_RATES_ERROR = 'SET_RATES_ERROR';

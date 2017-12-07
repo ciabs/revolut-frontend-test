@@ -1,19 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
 
-import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
+import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange, showSuccessModal} from '../../actions';
 import {
   Container, FromContainer, FormWrapper, ToContainer,
 } from './Form.styles';
 import Rates from '../Rates/Rates';
-import ExchangeButton from '../ExchangeButton/ExchangeButton';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
 import Balance from '../Balance/Balance';
 import ValueInput from '../ValueInput/ValueInput';
 import CurrencySelect from '../CurrencySelect/CurrencySelect';
+import SuccessModal from '../SuccessModal/SuccessModal';
+import Button from '../Button/Button';
 
 class Form extends Component {
   /*
@@ -36,6 +35,8 @@ class Form extends Component {
 
   handleExchange = () => this.props.exchangeFunc();
 
+  handleHideModal = () => this.props.showSuccessModalFunc(false);
+
   fixFocus = () => {
     if (this.state.inputOnFocus === 'fromCurrency') {
       this.fromValueInput.focus();
@@ -45,11 +46,18 @@ class Form extends Component {
   };
 
   render() {
-    const {rates, active, balance} = this.props;
+    const {rates, active, balance, modal} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
+    const isExchangeButtonDisabled = balance[fromCurrency] < fromValue || balance[fromCurrency] === 0;
 
     return (
       <Container>
+        {
+          modal.success &&
+          <SuccessModal
+            handleHideModal={this.handleHideModal}
+          />
+        }
         <FromContainer>
           <FormWrapper>
             <CurrencySelect
@@ -98,12 +106,12 @@ class Form extends Component {
             balance={balance}
             currency={toCurrency}
           />
-          <ExchangeButton
-            handleExchange={this.handleExchange}
-            fromCurrency={fromCurrency}
-            fromValue={fromValue}
-            balance={balance}
-          />
+          <Button
+            onClick={this.handleExchange}
+            isDisabled={isExchangeButtonDisabled}
+          >
+           Exchange
+          </Button>
         </ToContainer>
       </Container>
     );
@@ -113,7 +121,8 @@ class Form extends Component {
 const mapStateToProps = state => ({
   rates: state.rates,
   active: state.active,
-  balance: state.balance
+  balance: state.balance,
+  modal: state.modal
 });
 
 const mapDispatchToProps = dispatch => {
@@ -123,6 +132,7 @@ const mapDispatchToProps = dispatch => {
     setToCurrencyFunc: bindActionCreators(setToCurrency, dispatch),
     setToValueFunc: bindActionCreators(setToValue, dispatch),
     exchangeFunc: bindActionCreators(exchange, dispatch),
+    showSuccessModalFunc: bindActionCreators(showSuccessModal, dispatch),
   };
 };
 

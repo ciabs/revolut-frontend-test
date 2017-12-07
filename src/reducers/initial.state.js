@@ -16,5 +16,8 @@ export default {
   },
   errors: {
     rates: null
+  },
+  modal: {
+    success: true
   }
 };
