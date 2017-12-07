@@ -50,20 +50,6 @@ export const ToContainer = styled.div`
   justify-content: center;
 `;
 
-export const Rates = styled.div`
-  position: absolute;
-  bottom: -18px;
-  z-index: 2;
-  background-color: ${fromBackgroundColor};
-  border-radius: 18px;
-  font-size: 16px;
-  color: ${rateColor};
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 8px;
-  border: solid 1px ${toBackgroundColor};
-`;
-
 export const ExchangeButton = styled.button`
   background-color: ${exchangeBackgroundColorEnabled};
   color: ${exchangeColor};

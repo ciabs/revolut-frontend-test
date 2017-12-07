@@ -1,5 +1,6 @@
 import initialState from './initial.state';
 import * as types from '../actions/types';
+import {formatNumber, formatString} from '../helpers/string.helper';
 
 const setFromValue = (state, action) => {
   const {toCurrency} = state;
@@ -7,8 +8,8 @@ const setFromValue = (state, action) => {
   const toValue = fromValue * rates.rates[toCurrency];
 
   return Object.assign({}, state, {
-    fromValue: action.fromValue,
-    toValue
+    fromValue: formatNumber(action.fromValue),
+    toValue: formatNumber(toValue)
   });
 };
 
@@ -19,8 +20,8 @@ const setToValue = (state, action) => {
 
 
   return Object.assign({}, state, {
-    toValue: action.toValue,
-    fromValue
+    toValue: formatNumber(action.toValue),
+    fromValue: formatNumber(fromValue)
   });
 };
 
@@ -35,8 +36,8 @@ const setFromCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     fromCurrency: action.fromCurrency,
-    toValue,
-    toCurrency
+    toValue: formatNumber(toValue),
+    toCurrency: toCurrency
   });
 };
 
@@ -47,7 +48,7 @@ const setToCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     toCurrency: action.toCurrency,
-    toValue,
+    toValue: formatNumber(toValue),
     fromCurrency
   });
 };

@@ -7,9 +7,11 @@ import MenuItem from 'material-ui/MenuItem';
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
 import {
   Balance,
-  Container, ExchangeButton, FromContainer, FormWrapper, ToContainer, ValueInput
+  Container, FromContainer, FormWrapper, ToContainer, ValueInput
 } from './Form.styles';
 import Rates from '../Rates/Rates';
+import ExchangeButton from '../ExchangeButton/ExchangeButton';
+import {formatString} from '../../helpers/string.helper';
 
 class Form extends Component {
   /*
@@ -18,9 +20,9 @@ class Form extends Component {
   }
   */
 
-  handleFromValueChange = event => this.props.setFromValueFunc(event.target.value);
+  handleFromValueChange = event => this.props.setFromValueFunc(formatString(event.target.value));
 
-  handleToValueChange = event => this.props.setToValueFunc(event.target.value);
+  handleToValueChange = event => this.props.setToValueFunc(formatString(event.target.value));
 
   handleFromCurrencyChange = (event, index, value) => this.props.setFromCurrencyFunc(value);
 
@@ -40,6 +42,8 @@ class Form extends Component {
     const {rates, active, balance} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
 
+    console.log('fromValue', fromValue); //eslint-disable-line
+
     return (
       <Container>
         <FromContainer>
@@ -57,6 +61,7 @@ class Form extends Component {
             <ValueInput
               name="fromValue"
               type="number"
+              min="0"
               value={fromValue}
               onChange={this.handleFromValueChange}
               placeholder={0}
@@ -89,6 +94,7 @@ class Form extends Component {
             <ValueInput
               name="toValue"
               type="number"
+              min="0"
               value={toValue}
               onChange={this.handleToValueChange}
               placeholder={0}
@@ -102,11 +108,11 @@ class Form extends Component {
             Balance: {toCurrency}{balance[toCurrency] ? balance[toCurrency].toFixed(2) : `0.00`}
           </Balance>
           <ExchangeButton
-            disabled={balance[fromCurrency] < fromValue || balance[fromCurrency] === 0}
-            onClick={this.handleExchange}
-          >
-            Exchange
-          </ExchangeButton>
+            handleExchange={this.handleExchange}
+            fromCurrency={fromCurrency}
+            fromValue={fromValue}
+            balance={balance}
+          />
         </ToContainer>
       </Container>
     );
