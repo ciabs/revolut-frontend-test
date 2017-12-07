@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
+import {media} from '../../styles/mediaQuery';
 import {
+  balanceColor, exchangeBackgroundColorDisabled,
   exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor, fromBackgroundColor, rateColor,
   toBackgroundColor
 } from '../../styles/constants';
@@ -8,33 +10,41 @@ import {
 export const Container = styled.div`
   width: 375px;
   height: 667px;
+  ${media.small`
+    height: 100vh;
+  `};
 `;
 
 export const FromContainer = styled.div`
   height: 50%;
   padding: 15px;
   background-color: ${fromBackgroundColor};
-  border-radius: 5px 5px 0 0;
+  border-radius: 10px 10px 0 0;
   position: relative;
-`;
-
-export const FromWrapper = styled.div`
-  height: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+`;
+
+export const FormWrapper = styled.div`
+  display: flex;
+`;
+
+export const ValueInput = styled.input`
+  text-align: right;
+  border: none;
+  outline: none;
+  background-color: ${props => props.fromValue ? fromBackgroundColor : toBackgroundColor};
 `;
 
 export const ToContainer = styled.div`
   height: 50%;
   padding: 15px;
   background-color: ${toBackgroundColor};
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 10px 10px;
   position: relative;
-`;
-
-export const ToWrapper = styled.div`
-  height: 100%;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,15 +52,15 @@ export const ToWrapper = styled.div`
 
 export const Rates = styled.div`
   position: absolute;
-  bottom: -13px;
+  bottom: -18px;
   z-index: 2;
-  background-color: white;
-  border-radius: 13px;
-  font-size: 12px;
+  background-color: ${fromBackgroundColor};
+  border-radius: 18px;
+  font-size: 16px;
   color: ${rateColor};
   left: 50%;
   transform: translateX(-50%);
-  padding: 5px 10px;
+  padding: 8px;
   border: solid 1px ${toBackgroundColor};
 `;
 
@@ -61,7 +71,7 @@ export const ExchangeButton = styled.button`
   width: 60%;
   padding: 10px;
   border-radius: 20px;
-  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
   outline: none;
   position: absolute;
   bottom: 20px;
@@ -70,4 +80,12 @@ export const ExchangeButton = styled.button`
   :hover {
     background-color: ${exchangeBackgroundColorHover};
   }
+  &:disabled {
+    background-color: ${exchangeBackgroundColorDisabled};
+  }
+`;
+
+export const Balance = styled.span`
+  font-size: 14px;
+  color: ${balanceColor};
 `;

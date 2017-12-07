@@ -4,7 +4,7 @@ import * as types from '../actions/types';
 export default function ratesReducer(state = initialState.rates, action) {
   switch (action.type) {
     case types.GET_RATES:
-      return action.rates;
+      return Object.assign({}, state, action.rates);
     default:
       return state;
   }

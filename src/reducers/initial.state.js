@@ -10,5 +10,11 @@ export default {
     GBP: 15,
     EUR: 0,
     USD: 0
+  },
+  loading: {
+    rates: false
+  },
+  errors: {
+    rates: null
   }
 };

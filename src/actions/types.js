@@ -6,3 +6,7 @@ export const SET_TO_CURRENCY = 'SET_TO_CURRENCY';
 export const SET_TO_VALUE = 'SET_TO_VALUE';
 
 export const EXCHANGE = 'EXCHANGE';
+
+export const SET_RATES_LOADING = 'SET_RATES_LOADING';
+
+export const SET_RATES_ERROR = 'SET_RATES_ERROR';
