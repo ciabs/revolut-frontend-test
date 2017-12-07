@@ -12,10 +12,7 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
-      <App />
-      <DevTools />
-    </div>
+    <App />
   </Provider>,
   document.getElementById('root'));
 registerServiceWorker();
