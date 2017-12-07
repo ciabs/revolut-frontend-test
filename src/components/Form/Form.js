@@ -6,12 +6,14 @@ import MenuItem from 'material-ui/MenuItem';
 
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
 import {
-  Container, FromContainer, FormWrapper, ToContainer, ValueInput
+  Container, FromContainer, FormWrapper, ToContainer,
 } from './Form.styles';
 import Rates from '../Rates/Rates';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
 import Balance from '../Balance/Balance';
+import ValueInput from '../ValueInput/ValueInput';
+import CurrencySelect from '../CurrencySelect/CurrencySelect';
 
 class Form extends Component {
   /*
@@ -46,33 +48,23 @@ class Form extends Component {
     const {rates, active, balance} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
 
-    console.log('balance', balance); //eslint-disable-line
-    console.log('fromCurrency', fromCurrency); //eslint-disable-line
-
     return (
       <Container>
         <FromContainer>
           <FormWrapper>
-            <SelectField
+            <CurrencySelect
               name="fromCurrency"
               value={fromCurrency}
+              balance={balance}
+              isDisabled={!rates.date}
               onChange={this.handleFromCurrencyChange}
-              disabled={!rates.date}
-            >
-              <MenuItem value="GBP" label="GBP" primaryText={`GBP · ${balance.GBP.toFixed(2)}`} />
-              <MenuItem value="EUR" label="EUR" primaryText={`EUR · ${balance.EUR.toFixed(2)}`} />
-              <MenuItem value="USD" label="USD" primaryText={`USD · ${balance.USD.toFixed(2)}`} />
-            </SelectField>
+            />
             <ValueInput
               name="fromValue"
-              type="number"
-              min="0"
               value={fromValue}
               onChange={this.handleFromValueChange}
-              placeholder={0}
-              ref={input => { this.fromValueInput = input; }}
               disabled={!rates.date}
-              fromValue
+              isFromValue={true}
             />
           </FormWrapper>
           <Balance
@@ -87,27 +79,19 @@ class Form extends Component {
         </FromContainer>
         <ToContainer>
           <FormWrapper>
-            <SelectField
+            <CurrencySelect
               name="toCurrency"
               value={toCurrency}
+              balance={balance}
+              isDisabled={!rates.date}
               onChange={this.handleToCurrencyChange}
-              disabled={!rates.date}
-            >
-              <MenuItem value="GBP" label="GBP" primaryText={`GBP · ${balance.GBP.toFixed(2)}`} />
-              <MenuItem value="EUR" label="EUR" primaryText={`EUR · ${balance.EUR.toFixed(2)}`} />
-              <MenuItem value="USD" label="USD" primaryText={`USD · ${balance.USD.toFixed(2)}`} />
-            </SelectField>
+            />
             <ValueInput
               name="toValue"
-              type="number"
-              min="0"
               value={toValue}
               onChange={this.handleToValueChange}
-              placeholder={0}
-              ref={input => { this.toValueInput = input; }}
-              style={{textAlign: 'right', border: 'none', outline: 'none'}}
               disabled={!rates.date}
-              toValue
+              isFromValue={false}
             />
           </FormWrapper>
           <Balance

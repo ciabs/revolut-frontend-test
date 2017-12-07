@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
 import {media} from '../../styles/mediaQuery';
-import {
-  balanceColor, exchangeBackgroundColorDisabled,
-  exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor, fromBackgroundColor,
-  toBackgroundColor
-} from '../../styles/constants';
+import {fromBackgroundColor, mainColor, toBackgroundColor, zeroValueColor} from '../../styles/constants';
 
 export const Container = styled.div`
   width: 375px;
@@ -36,6 +32,7 @@ export const ValueInput = styled.input`
   border: none;
   outline: none;
   background-color: ${props => props.fromValue ? fromBackgroundColor : toBackgroundColor};
+  color: ${props => props.isZero ? zeroValueColor : mainColor}
 `;
 
 export const ToContainer = styled.div`
@@ -48,30 +45,4 @@ export const ToContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
-
-export const ExchangeButton = styled.button`
-  background-color: ${exchangeBackgroundColorEnabled};
-  color: ${exchangeColor};
-  border: none;
-  width: 60%;
-  padding: 10px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
-  outline: none;
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  :hover {
-    background-color: ${exchangeBackgroundColorHover};
-  }
-  &:disabled {
-    background-color: ${exchangeBackgroundColorDisabled};
-  }
-`;
-
-export const Balance = styled.span`
-  font-size: 14px;
-  color: ${balanceColor};
 `;
