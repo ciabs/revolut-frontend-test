@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {media} from '../../styles/mediaQuery';
 import {
   balanceColor, exchangeBackgroundColorDisabled,
-  exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor, fromBackgroundColor, rateColor,
+  exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor, fromBackgroundColor,
   toBackgroundColor
 } from '../../styles/constants';
 

@@ -7,7 +7,7 @@ export default {
     toValue: 0
   },
   balance: {
-    GBP: 15,
+    GBP: 15.00,
     EUR: 0,
     USD: 0
   },

@@ -6,12 +6,12 @@ import MenuItem from 'material-ui/MenuItem';
 
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange} from '../../actions';
 import {
-  Balance,
   Container, FromContainer, FormWrapper, ToContainer, ValueInput
 } from './Form.styles';
 import Rates from '../Rates/Rates';
 import ExchangeButton from '../ExchangeButton/ExchangeButton';
-import {formatString} from '../../helpers/string.helper';
+import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
+import Balance from '../Balance/Balance';
 
 class Form extends Component {
   /*
@@ -20,9 +20,13 @@ class Form extends Component {
   }
   */
 
-  handleFromValueChange = event => this.props.setFromValueFunc(formatString(event.target.value));
+  handleFromValueChange = event => this.props.setFromValueFunc(
+    convertInputValueToTwoDigitsNumber(event.target.value)
+  );
 
-  handleToValueChange = event => this.props.setToValueFunc(formatString(event.target.value));
+  handleToValueChange = event => this.props.setToValueFunc(
+    convertInputValueToTwoDigitsNumber(event.target.value)
+  );
 
   handleFromCurrencyChange = (event, index, value) => this.props.setFromCurrencyFunc(value);
 
@@ -42,7 +46,8 @@ class Form extends Component {
     const {rates, active, balance} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
 
-    console.log('fromValue', fromValue); //eslint-disable-line
+    console.log('balance', balance); //eslint-disable-line
+    console.log('fromCurrency', fromCurrency); //eslint-disable-line
 
     return (
       <Container>
@@ -70,9 +75,10 @@ class Form extends Component {
               fromValue
             />
           </FormWrapper>
-          <Balance>
-            Balance: {fromCurrency}{balance[fromCurrency].toFixed(2)}
-          </Balance>
+          <Balance
+            balance={balance}
+            currency={fromCurrency}
+          />
           <Rates
             toCurrency={toCurrency}
             fromCurrency={fromCurrency}
@@ -104,9 +110,10 @@ class Form extends Component {
               toValue
             />
           </FormWrapper>
-          <Balance>
-            Balance: {toCurrency}{balance[toCurrency] ? balance[toCurrency].toFixed(2) : `0.00`}
-          </Balance>
+          <Balance
+            balance={balance}
+            currency={toCurrency}
+          />
           <ExchangeButton
             handleExchange={this.handleExchange}
             fromCurrency={fromCurrency}

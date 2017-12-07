@@ -1,6 +1,6 @@
 import initialState from './initial.state';
 import * as types from '../actions/types';
-import {formatNumber, formatString} from '../helpers/string.helper';
+import {convertToTwoDigitsNumber} from '../helpers/string.helper';
 
 const setFromValue = (state, action) => {
   const {toCurrency} = state;
@@ -8,8 +8,8 @@ const setFromValue = (state, action) => {
   const toValue = fromValue * rates.rates[toCurrency];
 
   return Object.assign({}, state, {
-    fromValue: formatNumber(action.fromValue),
-    toValue: formatNumber(toValue)
+    fromValue: convertToTwoDigitsNumber(action.fromValue),
+    toValue: convertToTwoDigitsNumber(toValue)
   });
 };
 
@@ -20,8 +20,8 @@ const setToValue = (state, action) => {
 
 
   return Object.assign({}, state, {
-    toValue: formatNumber(action.toValue),
-    fromValue: formatNumber(fromValue)
+    toValue: convertToTwoDigitsNumber(action.toValue),
+    fromValue: convertToTwoDigitsNumber(fromValue)
   });
 };
 
@@ -36,7 +36,7 @@ const setFromCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     fromCurrency: action.fromCurrency,
-    toValue: formatNumber(toValue),
+    toValue: convertToTwoDigitsNumber(toValue),
     toCurrency: toCurrency
   });
 };
@@ -48,7 +48,7 @@ const setToCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     toCurrency: action.toCurrency,
-    toValue: formatNumber(toValue),
+    toValue: convertToTwoDigitsNumber(toValue),
     fromCurrency
   });
 };
