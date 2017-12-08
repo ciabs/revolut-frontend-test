@@ -9,6 +9,7 @@ const CurrencySelect = ({name, value, onChange, isDisabled, balance}) => (
     value={value}
     onChange={onChange}
     disabled={isDisabled}
+    labelStyle={{fontSize: '30px'}}
   >
     <MenuItem value="GBP" label="GBP" primaryText={`GBP · ${balance.GBP.toFixed(2)}`} />
     <MenuItem value="EUR" label="EUR" primaryText={`EUR · ${balance.EUR.toFixed(2)}`} />

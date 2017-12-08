@@ -27,6 +27,7 @@ export const FromContainer = styled.div`
 
 export const FormWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 export const ToContainer = styled.div`
@@ -41,23 +42,3 @@ export const ToContainer = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-
-export const SuccessModalContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  width: 100%;
-  height: 100%;
-  background-color: ${fromBackgroundColor};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const Content = styled.div`
-  text-align: center;
-  font-size: 18px;
-`;
-
-

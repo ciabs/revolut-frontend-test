@@ -2,9 +2,9 @@ export default {
   rates: {},
   active: {
     fromCurrency: 'GBP',
-    fromValue: 0,
+    fromValue: 0.00,
     toCurrency: 'EUR',
-    toValue: 0
+    toValue: 0.00
   },
   balance: {
     GBP: 15.00,

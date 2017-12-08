@@ -8,11 +8,11 @@ const ValueInput = ({name, value, onChange, disabled, isFromValue}) => (
     name={name}
     type="number"
     min="0"
-    value={value}
+    placeholder="0"
+    value={value === 0.00 ? '' : value}
     onChange={onChange}
     disabled={disabled}
     isFromValue={isFromValue}
-    isZero={value === 0}
   />
 );
 
