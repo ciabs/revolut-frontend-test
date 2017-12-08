@@ -1,7 +1,11 @@
 {
   "name": "revolut",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Web Development Home Task",
+  "author": "Francesco Fiori <francesco.fiori@gmail.com>",
   "private": true,
+  "license": "MIT",
+  "homepage": "https://francescofiori.github.io/revolut",
   "dependencies": {
     "accounting": "^0.4.1",
     "axios": "^0.17.1",
@@ -23,12 +27,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy" : "yarn build&&gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.3",
     "eslint": "^4.12.1",
     "eslint-plugin-react": "^7.5.1",
+    "gh-pages": "^1.1.0",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.2",
     "redux-devtools-log-monitor": "^1.4.0",
