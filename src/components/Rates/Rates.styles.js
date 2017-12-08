@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-import {fromBackgroundColor, rateColor, toBackgroundColor} from '../../styles/constants';
+import {FROM_BG_COLOR, RATE_COLOR, TO_BG_COLOR} from '../../styles/constants';
 
 export const Container = styled.div`
   position: absolute;
   bottom: -18px;
   z-index: 2;
-  background-color: ${fromBackgroundColor};
+  background-color: ${FROM_BG_COLOR};
   border-radius: 18px;
   font-size: 14px;
-  color: ${rateColor};
+  color: ${RATE_COLOR};
   left: 50%;
   transform: translateX(-50%);
   padding: 8px 12px;
-  border: solid 2px ${toBackgroundColor};
+  border: solid 2px ${TO_BG_COLOR};
 `;

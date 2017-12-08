@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome  from 'react-fontawesome';
 
-import {rateColor} from '../../styles/constants';
+import {RATE_COLOR} from '../../styles/constants';
 import {Container, Content} from './SuccessModal.styles';
 import Button from '../Button/Button';
 import {getCurrencySymbol} from '../../helpers/currency.helper';
@@ -21,7 +21,7 @@ const SuccessModal = ({handleHideModal, lastExchange}) => {
             name='check-circle-o'
             size='5x'
             style={{
-              color: rateColor,
+              color: RATE_COLOR,
               marginBottom: '30px'
             }}
           />

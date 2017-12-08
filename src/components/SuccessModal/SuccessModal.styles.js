@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {fromBackgroundColor} from '../../styles/constants';
+import {FROM_BG_COLOR} from '../../styles/constants';
 import {media} from '../../styles/mediaQuery';
 
 export const Container = styled.div`
@@ -9,7 +9,7 @@ export const Container = styled.div`
   z-index: 5;
   width: 100%;
   height: 100%;
-  background-color: ${fromBackgroundColor};
+  background-color: ${FROM_BG_COLOR};
   display: flex;
   flex-direction: column;
   justify-content: center;

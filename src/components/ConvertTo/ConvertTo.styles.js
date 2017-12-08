@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import {toBackgroundColor} from '../../styles/constants';
+import {TO_BG_COLOR} from '../../styles/constants';
 import {media} from '../../styles/mediaQuery';
 
 export const Container = styled.div`
   height: 50%;
   box-sizing: border-box;
-  padding: 15px;
-  background-color: ${toBackgroundColor};
+  padding: 20px;
+  background-color: ${TO_BG_COLOR};
   position: relative;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;

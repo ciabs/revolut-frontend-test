@@ -13,7 +13,7 @@ export const GlobalStyled = () => `
   }
   
   #root {
-    background-color: grey;
+    background-color: #0068E6;
     height: 100vh;
     display: flex;
     align-items: center;

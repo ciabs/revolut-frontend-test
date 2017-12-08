@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import {balanceColor} from '../../styles/constants';
+import {BALANCE_COLOR} from '../../styles/constants';
 
 export const Container = styled.div`
   font-size: 14px;
-  color: ${balanceColor};
+  color: ${BALANCE_COLOR};
 `;

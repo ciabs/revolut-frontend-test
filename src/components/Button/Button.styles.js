@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 import {
-  exchangeBackgroundColorDisabled,
-  exchangeBackgroundColorEnabled, exchangeBackgroundColorHover, exchangeColor
+  EXCHANGE_BG_COLOR_DISABLED,
+  EXCHANGE_BG_COLOR_ENABLED, EXCHANGE_BG_COLOR_HOVER, EXCHANGE_COLOR
 } from '../../styles/constants';
 
 export const Container = styled.button`
   cursor: pointer;
-  background-color: ${exchangeBackgroundColorEnabled};
-  color: ${exchangeColor};
+  background-color: ${EXCHANGE_BG_COLOR_ENABLED};
+  color: ${EXCHANGE_COLOR};
   border: none;
   width: 80%;
   padding: 15px;
@@ -20,10 +20,10 @@ export const Container = styled.button`
   left: 50%;
   transform: translateX(-50%);
   :hover {
-    background-color: ${exchangeBackgroundColorHover};
+    background-color: ${EXCHANGE_BG_COLOR_HOVER};
   }
   &:disabled {
-    background-color: ${exchangeBackgroundColorDisabled};
+    background-color: ${EXCHANGE_BG_COLOR_DISABLED};
     cursor: auto;
   }
 `;
