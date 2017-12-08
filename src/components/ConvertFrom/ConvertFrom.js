@@ -8,6 +8,8 @@ import Rates from '../Rates/Rates';
 
 import {Container} from './ConvertFrom.styles';
 import {FormWrapper} from '../Main/Main.styles';
+import {Error} from '../Error/Error';
+import {Spinner} from '../Spinner/Spinner';
 
 const ConvertFrom = ({
   fromCurrency,
@@ -16,9 +18,16 @@ const ConvertFrom = ({
   fromValue,
   toCurrency,
   handleFromCurrencyChange,
-  handleFromValueChange
+  handleFromValueChange,
+  ratesError
 }) => (
   <Container>
+    <Spinner
+      isLoading={true}
+    />
+    <Error
+      error={ratesError}
+    />
     <FormWrapper>
       <CurrencySelect
         name="fromCurrency"

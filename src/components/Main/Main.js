@@ -28,7 +28,7 @@ class Main extends Component {
   handleHideModal = () => this.props.showSuccessModalFunc(false);
 
   render() {
-    const {rates, active, balance, modal} = this.props;
+    const {rates, active, balance, modal, errors} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
     const isExchangeButtonDisabled = balance[fromCurrency] < fromValue ||
       balance[fromCurrency] === 0 ||
@@ -52,6 +52,7 @@ class Main extends Component {
           rates={rates}
           handleFromCurrencyChange={this.handleFromCurrencyChange}
           handleFromValueChange={this.handleFromValueChange}
+          ratesError={errors.rates}
         />
         <ConvertTo
          toCurrency={toCurrency}
@@ -85,7 +86,8 @@ const mapStateToProps = state => ({
   rates: state.rates,
   active: state.active,
   balance: state.balance,
-  modal: state.modal
+  modal: state.modal,
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => {

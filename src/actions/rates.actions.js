@@ -11,7 +11,7 @@ export const getRates = (fromCurrency) => dispatch => {
   return getRatesFromApi(fromCurrency, toCurrencies)
     .then(rates => {
       dispatch(setRatesLoading(false));
-      dispatch(setRatesError(false));
+      dispatch(setRatesError(null));
 
       return dispatch({
         type: ActionTypes.GET_RATES,
