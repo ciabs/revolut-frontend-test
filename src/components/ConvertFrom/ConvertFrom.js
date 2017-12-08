@@ -9,7 +9,6 @@ import Rates from '../Rates/Rates';
 import {Container} from './ConvertFrom.styles';
 import {FormWrapper} from '../Main/Main.styles';
 import {Error} from '../Error/Error';
-import {Spinner} from '../Spinner/Spinner';
 
 const ConvertFrom = ({
   fromCurrency,
@@ -19,12 +18,10 @@ const ConvertFrom = ({
   toCurrency,
   handleFromCurrencyChange,
   handleFromValueChange,
-  ratesError
+  ratesError,
+  ratesLoading
 }) => (
   <Container>
-    <Spinner
-      isLoading={true}
-    />
     <Error
       error={ratesError}
     />
@@ -52,6 +49,7 @@ const ConvertFrom = ({
       toCurrency={toCurrency}
       fromCurrency={fromCurrency}
       rates={rates}
+      isLoading={ratesLoading}
     />
   </Container>
   );

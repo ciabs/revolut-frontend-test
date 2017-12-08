@@ -14,3 +14,7 @@ export const Container = styled.div`
   padding: 8px 12px;
   border: solid 2px ${TO_BG_COLOR};
 `;
+
+export const LoadingDot = styled.span`
+  color: ${props => props.isLoading ? RATE_COLOR : FROM_BG_COLOR}
+`;

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome  from 'react-fontawesome';
 
-import {Container} from './Rates.styles';
+import {Container, LoadingDot} from './Rates.styles';
 import {getCurrencySymbol} from '../../helpers/currency.helper';
 
-const Rates = ({rates, fromCurrency, toCurrency}) => (
+const Rates = ({rates, fromCurrency, toCurrency, isLoading}) => (
   <Container>
     {
       rates.date && rates.rates[toCurrency] ? (
@@ -15,8 +15,11 @@ const Rates = ({rates, fromCurrency, toCurrency}) => (
             style={{marginRight: '5px'}}
           />
           <span>
-            {getCurrencySymbol(fromCurrency)}1 = {getCurrencySymbol(toCurrency)}{rates.rates[toCurrency].toFixed(4)}
+            {
+              getCurrencySymbol(fromCurrency)}1 = {getCurrencySymbol(toCurrency)}{rates.rates[toCurrency].toFixed(4)
+            }
           </span>
+          <LoadingDot isLoading={isLoading}> · </LoadingDot>
         </div>
       ) : (
         <div>
