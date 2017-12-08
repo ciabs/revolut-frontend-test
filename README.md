@@ -22,11 +22,11 @@ To install dependencies:
 To run the project:
 ### `yarn start`
 
-To run the tests:
-### `yarn tests`
-
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+To run the tests:
+### `yarn tests`
 
 ## Demo
 [http://umbrella.to/revolut](http://umbrella.to/revolut)
