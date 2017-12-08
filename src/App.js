@@ -15,9 +15,9 @@ class App extends Component {
   }
 
   getRatesLoop = () => {
-    const {getRatesFunc, active} = this.props;
+    const {getRatesFunc, fromCurrency} = this.props;
 
-    getRatesFunc(active.fromCurrency);
+    getRatesFunc(fromCurrency);
     return this.getRatesLoop;
   };
 
@@ -27,14 +27,12 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  active: state.active
+  fromCurrency: state.active.fromCurrency
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getRatesFunc: bindActionCreators(getRates, dispatch)
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getRatesFunc: bindActionCreators(getRates, dispatch)
+});
 
 export default connect(
   mapStateToProps,

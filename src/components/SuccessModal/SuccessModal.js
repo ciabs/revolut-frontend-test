@@ -9,7 +9,9 @@ import {getCurrencySymbol} from '../../helpers/currency.helper';
 
 const SuccessModal = ({handleHideModal, lastExchange}) => {
 
-  const renderLastExchangeMessage = `You exchanged ${getCurrencySymbol(lastExchange.fromCurrency)}${lastExchange.fromValue} -> ${getCurrencySymbol(lastExchange.toCurrency)}${lastExchange.toValue}`;
+  const renderLastExchangeMessage = `You exchanged 
+  ${getCurrencySymbol(lastExchange.fromCurrency)}${lastExchange.fromValue} → 
+  ${getCurrencySymbol(lastExchange.toCurrency)}${lastExchange.toValue}`;
 
   return (
     <Container>

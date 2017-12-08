@@ -13,8 +13,9 @@ import ValueInput from '../ValueInput/ValueInput';
 import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import SuccessModal from '../SuccessModal/SuccessModal';
 import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
-class Form extends Component {
+class Main extends Component {
   /*
   componentDidMount() {
     this.fromValueInput.focus();
@@ -122,6 +123,19 @@ class Form extends Component {
   }
 }
 
+Main.propTypes = {
+  rates: PropTypes.object.isRequired,
+  active: PropTypes.object.isRequired,
+  balance: PropTypes.object.isRequired,
+  modal: PropTypes.object.isRequired,
+  setFromCurrencyFunc: PropTypes.func.isRequired,
+  setFromValueFunc: PropTypes.func.isRequired,
+  setToCurrencyFunc: PropTypes.func.isRequired,
+  setToValueFunc: PropTypes.func.isRequired,
+  exchangeFunc: PropTypes.func.isRequired,
+  showSuccessModalFunc: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => ({
   rates: state.rates,
   active: state.active,
@@ -143,4 +157,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Form);
+)(Main);
