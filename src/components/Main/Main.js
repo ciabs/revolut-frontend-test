@@ -3,17 +3,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange, showSuccessModal} from '../../actions';
-import {
-  Container, FormWrapper, ToContainer,
-} from './Main.styles';
+import {Container} from './Main.styles';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
-import Balance from '../Balance/Balance';
-import ValueInput from '../ValueInput/ValueInput';
-import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import SuccessModal from '../SuccessModal/SuccessModal';
-import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 import FromComponent from '../ConvertFrom/ConvertFrom';
+import ConvertTo from '../ConvertTo/ConvertTo';
 
 class Main extends Component {
   /*
@@ -72,34 +67,16 @@ class Main extends Component {
           handleFromCurrencyChange={this.handleFromCurrencyChange}
           handleFromValueChange={this.handleFromValueChange}
         />
-        <ToContainer>
-          <FormWrapper>
-            <CurrencySelect
-              name="toCurrency"
-              value={toCurrency}
-              balance={balance}
-              isDisabled={!rates.date}
-              onChange={this.handleToCurrencyChange}
-            />
-            <ValueInput
-              name="toValue"
-              value={toValue}
-              onChange={this.handleToValueChange}
-              disabled={!rates.date}
-              isFromValue={false}
-            />
-          </FormWrapper>
-          <Balance
-            balance={balance}
-            currency={toCurrency}
-          />
-          <Button
-            onClick={this.handleExchange}
-            isDisabled={isExchangeButtonDisabled}
-          >
-           Exchange
-          </Button>
-        </ToContainer>
+        <ConvertTo
+         toCurrency={toCurrency}
+         balance={balance}
+         toValue={toValue}
+         handleToCurrencyChange={this.handleToCurrencyChange}
+         handleToValueChange={this.handleToValueChange}
+         isExchangeButtonDisabled={isExchangeButtonDisabled}
+         rates={rates}
+         handleExchange={this.handleExchange}
+        />
       </Container>
     );
   }
