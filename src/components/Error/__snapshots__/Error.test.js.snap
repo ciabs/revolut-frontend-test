@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error has a valid snapshot 1`] = `
+<span
+  aria-hidden={true}
+  className="fa fa-exclamation-triangle fa-2x"
+  style={
+    Object {
+      "color": "red",
+      "cursor": "pointer",
+      "display": "none",
+      "position": "absolute",
+      "right": "20px",
+      "top": "20px",
+    }
+  }
+  title={null}
+/>
+`;

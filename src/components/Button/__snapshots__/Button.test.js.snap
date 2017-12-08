@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button has a valid snapshot 1`] = `
+<button
+  className="sc-bdVaJa cgzLHg"
+  disabled={false}
+  onClick={[Function]}
+>
+  hello world
+</button>
+`;

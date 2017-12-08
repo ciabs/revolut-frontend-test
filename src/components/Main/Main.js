@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import FromComponent from '../ConvertFrom/ConvertFrom';
 import ConvertTo from '../ConvertTo/ConvertTo';
 
-class Main extends Component {
+export class Main extends Component {
   handleFromValueChange = event => this.props.setFromValueFunc(
     convertInputValueToTwoDigitsNumber(event.target.value)
   );

@@ -7,7 +7,7 @@ import {getRates} from './actions';
 import Form from './components/Main/Main';
 import {GlobalStyled} from './styles/global';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     setInterval(this.getRatesLoop(), 10 * 1000);
 

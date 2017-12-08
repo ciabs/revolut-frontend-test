@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValueInput has a valid snapshot 1`] = `
+<input
+  className="sc-bdVaJa ieueMs"
+  disabled={false}
+  min="0"
+  name="fromValue"
+  onChange={[Function]}
+  placeholder="0"
+  type="number"
+  value={-0.15}
+/>
+`;

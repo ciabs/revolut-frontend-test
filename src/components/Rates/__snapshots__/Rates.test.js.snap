@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rates has a valid snapshot 1`] = `
+<div
+  className="sc-bdVaJa hUDFso"
+>
+  <div>
+    <span
+      aria-hidden={true}
+      className="fa fa-circle-o-notch fa-spin"
+    />
+  </div>
+</div>
+`;

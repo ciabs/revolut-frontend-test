@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuccessModal has a valid snapshot 1`] = `
+<div
+  className="sc-bdVaJa bdPopR"
+>
+  <div
+    className="sc-bwzfXH fybyaO"
+  >
+    <div>
+      <img
+        className="sc-htpNat kmFITi"
+        src="check.svg"
+      />
+    </div>
+    <span>
+      You exchanged 
+        £undefined → 
+        £undefined
+    </span>
+  </div>
+  <button
+    className="sc-bxivhb hNbXFO"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Done
+  </button>
+</div>
+`;

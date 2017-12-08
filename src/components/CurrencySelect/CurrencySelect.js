@@ -5,6 +5,7 @@ import {MenuItem, SelectField} from 'material-ui';
 
 const CurrencySelect = ({name, value, onChange, isDisabled, balance}) => (
   <SelectField
+    id={name}
     name={name}
     value={value}
     onChange={onChange}
