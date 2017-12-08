@@ -8,7 +8,13 @@ const exchange =  (state, action) => {
 
   return Object.assign({}, state, {
     [active.fromCurrency]: convertToTwoDigitsNumber(state[active.fromCurrency] - active.fromValue),
-    [active.toCurrency]: convertToTwoDigitsNumber(state[active.toCurrency] + echangedValue)
+    [active.toCurrency]: convertToTwoDigitsNumber(state[active.toCurrency] + echangedValue),
+    lastExchange: {
+      fromValue: active.fromValue,
+      toValue: echangedValue,
+      fromCurrency: active.fromCurrency,
+      toCurrency: active.toCurrency
+    }
   });
 };
 

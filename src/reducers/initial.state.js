@@ -9,7 +9,8 @@ export default {
   balance: {
     GBP: 15.00,
     EUR: 0,
-    USD: 0
+    USD: 0,
+    lastExchange: {}
   },
   loading: {
     rates: false
@@ -18,6 +19,6 @@ export default {
     rates: null
   },
   modal: {
-    success: true
+    success: false
   }
 };

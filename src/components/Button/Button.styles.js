@@ -24,5 +24,6 @@ export const Container = styled.button`
   }
   &:disabled {
     background-color: ${exchangeBackgroundColorDisabled};
+    cursor: auto;
   }
 `;

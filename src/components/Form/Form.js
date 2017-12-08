@@ -48,16 +48,20 @@ class Form extends Component {
   render() {
     const {rates, active, balance, modal} = this.props;
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
-    const isExchangeButtonDisabled = balance[fromCurrency] < fromValue || balance[fromCurrency] === 0;
+    const isExchangeButtonDisabled = balance[fromCurrency] < fromValue ||
+      balance[fromCurrency] === 0 ||
+      fromValue === 0;
+
+    const renderSuccessModal = modal.success && (
+      <SuccessModal
+        handleHideModal={this.handleHideModal}
+        lastExchange={balance.lastExchange}
+      />
+    );
 
     return (
       <Container>
-        {
-          modal.success &&
-          <SuccessModal
-            handleHideModal={this.handleHideModal}
-          />
-        }
+        {renderSuccessModal}
         <FromContainer>
           <FormWrapper>
             <CurrencySelect
