@@ -6,7 +6,10 @@ export const Container = styled.div`
   width: 375px;
   height: 667px;
   position: relative;
-  ${media.small`
+  ${media.smallHorizontal`
+    width: auto;
+  `};
+  ${media.smallVertical`
     height: 100vh;
   `};
 `;

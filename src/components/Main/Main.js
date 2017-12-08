@@ -11,12 +11,6 @@ import FromComponent from '../ConvertFrom/ConvertFrom';
 import ConvertTo from '../ConvertTo/ConvertTo';
 
 class Main extends Component {
-  /*
-  componentDidMount() {
-    this.fromValueInput.focus();
-  }
-  */
-
   handleFromValueChange = event => this.props.setFromValueFunc(
     convertInputValueToTwoDigitsNumber(event.target.value)
   );
@@ -32,14 +26,6 @@ class Main extends Component {
   handleExchange = () => this.props.exchangeFunc();
 
   handleHideModal = () => this.props.showSuccessModalFunc(false);
-
-  fixFocus = () => {
-    if (this.state.inputOnFocus === 'fromCurrency') {
-      this.fromValueInput.focus();
-    } else {
-      this.toValueInput.focus();
-    }
-  };
 
   render() {
     const {rates, active, balance, modal} = this.props;

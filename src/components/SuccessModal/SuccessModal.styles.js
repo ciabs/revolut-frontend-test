@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {fromBackgroundColor} from '../../styles/constants';
+import {media} from '../../styles/mediaQuery';
 
 export const Container = styled.div`
   position: absolute;
@@ -13,6 +14,9 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   border-radius: 10px;
+  ${media.small`
+    border-radius: 0;
+  `};
 `;
 
 export const Content = styled.div`
