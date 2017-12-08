@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome  from 'react-fontawesome';
+import PropTypes from 'prop-types';
 
 export const Error = error => (
   <FontAwesome
@@ -16,3 +17,7 @@ export const Error = error => (
     title={error.error}
   />
 );
+
+Error.propTypes = {
+  error: PropTypes.string
+};

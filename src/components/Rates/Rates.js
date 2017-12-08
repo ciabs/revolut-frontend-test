@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome  from 'react-fontawesome';
 
-import {Container, LoadingDot} from './Rates.styles';
 import {getCurrencySymbol} from '../../helpers/currency.helper';
+
+import {Container, LoadingDot} from './Rates.styles';
 
 const Rates = ({rates, fromCurrency, toCurrency, isLoading}) => (
   <Container>

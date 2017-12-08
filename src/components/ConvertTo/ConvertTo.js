@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import ValueInput from '../ValueInput/ValueInput';
 import Balance from '../Balance/Balance';
+import Button from '../Button/Button';
 
 import {Container} from './ConvertTo.styles';
 import {FormWrapper} from '../Main/Main.styles';
-import Button from '../Button/Button';
 
 const ConvertTo = ({
   balance,

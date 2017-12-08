@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Container, Content, Img} from './SuccessModal.styles';
-import Button from '../Button/Button';
 import {getCurrencySymbol} from '../../helpers/currency.helper';
+
+import Button from '../Button/Button';
 import check from '../../assets/images/check.svg';
+import {Container, Content, Img} from './SuccessModal.styles';
 
 const SuccessModal = ({handleHideModal, lastExchange}) => {
 

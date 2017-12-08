@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange, showSuccessModal} from '../../actions';
-import {Container} from './Main.styles';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
+
 import SuccessModal from '../SuccessModal/SuccessModal';
-import PropTypes from 'prop-types';
 import FromComponent from '../ConvertFrom/ConvertFrom';
 import ConvertTo from '../ConvertTo/ConvertTo';
+
+import {Container} from './Main.styles';
 
 export class Main extends Component {
   handleFromValueChange = event => this.props.setFromValueFunc(

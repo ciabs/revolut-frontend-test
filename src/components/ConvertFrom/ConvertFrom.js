@@ -5,10 +5,10 @@ import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import ValueInput from '../ValueInput/ValueInput';
 import Balance from '../Balance/Balance';
 import Rates from '../Rates/Rates';
+import {Error} from '../Error/Error';
 
 import {Container} from './ConvertFrom.styles';
 import {FormWrapper} from '../Main/Main.styles';
-import {Error} from '../Error/Error';
 
 const ConvertFrom = ({
   fromCurrency,
