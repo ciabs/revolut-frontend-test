@@ -15,8 +15,8 @@ exports[`SuccessModal has a valid snapshot 1`] = `
     </div>
     <span>
       You exchanged 
-        £undefined → 
-        £undefined
+        £12.34 → 
+        £43.21
     </span>
   </div>
   <button

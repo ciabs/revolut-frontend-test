@@ -5,7 +5,10 @@ import SuccessModal from './SuccessModal';
 
 describe('SuccessModal', () => {
   const props = {
-    lastExchange: {},
+    lastExchange: {
+      fromValue: 12.34,
+      toValue: 43.21,
+    },
     handleHideModal: jest.fn()
   };
 

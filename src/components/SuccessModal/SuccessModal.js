@@ -10,8 +10,8 @@ import {Container, Content, Img} from './SuccessModal.styles';
 const SuccessModal = ({handleHideModal, lastExchange}) => {
 
   const renderLastExchangeMessage = `You exchanged 
-  ${getCurrencySymbol(lastExchange.fromCurrency)}${lastExchange.fromValue} → 
-  ${getCurrencySymbol(lastExchange.toCurrency)}${lastExchange.toValue}`;
+  ${getCurrencySymbol(lastExchange.fromCurrency)}${lastExchange.fromValue.toFixed(2)} → 
+  ${getCurrencySymbol(lastExchange.toCurrency)}${lastExchange.toValue.toFixed(2)}`;
 
   return (
     <Container>
