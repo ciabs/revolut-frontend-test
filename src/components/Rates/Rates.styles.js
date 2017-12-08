@@ -16,5 +16,7 @@ export const Container = styled.div`
 `;
 
 export const LoadingDot = styled.span`
-  color: ${props => props.isLoading ? RATE_COLOR : FROM_BG_COLOR}
+  color: ${props => props.isLoading ? RATE_COLOR : FROM_BG_COLOR};
+  margin-left: 5px;
+  margin-right: -5px;
 `;

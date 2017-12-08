@@ -19,7 +19,9 @@ const Rates = ({rates, fromCurrency, toCurrency, isLoading}) => (
               getCurrencySymbol(fromCurrency)}1 = {getCurrencySymbol(toCurrency)}{rates.rates[toCurrency].toFixed(4)
             }
           </span>
-          <LoadingDot isLoading={isLoading}> · </LoadingDot>
+          <LoadingDot isLoading={isLoading}>
+            <FontAwesome name='circle' />
+          </LoadingDot>
         </div>
       ) : (
         <div>
@@ -37,7 +39,8 @@ const Rates = ({rates, fromCurrency, toCurrency, isLoading}) => (
 Rates.propTypes = {
   rates: PropTypes.object,
   fromCurrency: PropTypes.string,
-  toCurrency: PropTypes.string
+  toCurrency: PropTypes.string,
+  isLoading: PropTypes.bool
 };
 
 export default Rates;

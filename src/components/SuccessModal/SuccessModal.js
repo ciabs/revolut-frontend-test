@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome  from 'react-fontawesome';
 
-import {RATE_COLOR} from '../../styles/constants';
-import {Container, Content} from './SuccessModal.styles';
+import {Container, Content, Img} from './SuccessModal.styles';
 import Button from '../Button/Button';
 import {getCurrencySymbol} from '../../helpers/currency.helper';
+import check from '../../assets/images/check.svg';
 
 const SuccessModal = ({handleHideModal, lastExchange}) => {
 
@@ -17,14 +16,7 @@ const SuccessModal = ({handleHideModal, lastExchange}) => {
     <Container>
       <Content>
         <div>
-          <FontAwesome
-            name='check-circle-o'
-            size='5x'
-            style={{
-              color: RATE_COLOR,
-              marginBottom: '30px'
-            }}
-          />
+          <Img src={check} />
         </div>
         <span>
           {renderLastExchangeMessage}

@@ -23,3 +23,8 @@ export const Content = styled.div`
   text-align: center;
   font-size: 18px;
 `;
+
+export const Img = styled.img`
+  width: 150px;
+  margin-bottom: 30px;
+`;
