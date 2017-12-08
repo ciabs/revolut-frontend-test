@@ -9,10 +9,11 @@ const ValueInput = ({name, value, onChange, disabled, isFromValue}) => (
     type="number"
     min="0"
     placeholder="0"
-    value={value === 0.00 ? '' : value}
+    value={isFromValue ? -value : value}
     onChange={onChange}
     disabled={disabled}
     isFromValue={isFromValue}
+    isZero={value === 0}
   />
 );
 
