@@ -12,6 +12,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-radius: 10px;
 `;
 
 export const Content = styled.div`

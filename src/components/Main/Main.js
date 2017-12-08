@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange, showSuccessModal} from '../../actions';
 import {
   Container, FromContainer, FormWrapper, ToContainer,
-} from './Form.styles';
+} from './Main.styles';
 import Rates from '../Rates/Rates';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
 import Balance from '../Balance/Balance';

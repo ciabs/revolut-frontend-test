@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {injectGlobal} from 'styled-components';
 
 import {getRates} from './actions';
-import Form from './components/Form/Form';
+import Form from './components/Main/Main';
 import {GlobalStyled} from './styles/global';
 
 class App extends Component {
