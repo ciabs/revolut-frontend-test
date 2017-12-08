@@ -4,9 +4,8 @@ import {bindActionCreators} from 'redux';
 
 import {setFromCurrency, setFromValue, setToCurrency, setToValue, exchange, showSuccessModal} from '../../actions';
 import {
-  Container, FromContainer, FormWrapper, ToContainer,
+  Container, FormWrapper, ToContainer,
 } from './Main.styles';
-import Rates from '../Rates/Rates';
 import {convertInputValueToTwoDigitsNumber} from '../../helpers/string.helper';
 import Balance from '../Balance/Balance';
 import ValueInput from '../ValueInput/ValueInput';
@@ -14,6 +13,7 @@ import CurrencySelect from '../CurrencySelect/CurrencySelect';
 import SuccessModal from '../SuccessModal/SuccessModal';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+import FromComponent from '../ConvertFrom/ConvertFrom';
 
 class Main extends Component {
   /*
@@ -63,33 +63,15 @@ class Main extends Component {
     return (
       <Container>
         {renderSuccessModal}
-        <FromContainer>
-          <FormWrapper>
-            <CurrencySelect
-              name="fromCurrency"
-              value={fromCurrency}
-              balance={balance}
-              isDisabled={!rates.date}
-              onChange={this.handleFromCurrencyChange}
-            />
-            <ValueInput
-              name="fromValue"
-              value={fromValue}
-              onChange={this.handleFromValueChange}
-              disabled={!rates.date}
-              isFromValue={true}
-            />
-          </FormWrapper>
-          <Balance
-            balance={balance}
-            currency={fromCurrency}
-          />
-          <Rates
-            toCurrency={toCurrency}
-            fromCurrency={fromCurrency}
-            rates={rates}
-          />
-        </FromContainer>
+        <FromComponent
+          balance={balance}
+          fromCurrency={fromCurrency}
+          fromValue={fromValue}
+          toCurrency={toCurrency}
+          rates={rates}
+          handleFromCurrencyChange={this.handleFromCurrencyChange}
+          handleFromValueChange={this.handleFromValueChange}
+        />
         <ToContainer>
           <FormWrapper>
             <CurrencySelect

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {media} from '../../styles/mediaQuery';
-import {fromBackgroundColor, toBackgroundColor} from '../../styles/constants';
+import {toBackgroundColor} from '../../styles/constants';
 
 export const Container = styled.div`
   width: 375px;
@@ -10,19 +10,6 @@ export const Container = styled.div`
   ${media.small`
     height: 100vh;
   `};
-`;
-
-export const FromContainer = styled.div`
-  height: 50%;
-  box-sizing: border-box;
-  padding: 15px;
-  background-color: ${fromBackgroundColor};
-  border-radius: 10px 10px 0 0;
-  position: relative;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;
 
 export const FormWrapper = styled.div`
