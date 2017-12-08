@@ -58,7 +58,7 @@ ConvertFrom.propTypes = {
   fromCurrency: PropTypes.string.isRequired,
   balance: PropTypes.object.isRequired,
   rates: PropTypes.object,
-  fromValue: PropTypes.number.isRequired,
+  fromValue: PropTypes.any.isRequired,
   toCurrency: PropTypes.string.isRequired,
   handleFromCurrencyChange: PropTypes.func.isRequired,
   handleFromValueChange: PropTypes.func.isRequired

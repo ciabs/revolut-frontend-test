@@ -34,7 +34,8 @@ export class Main extends Component {
     const {fromValue, fromCurrency, toValue, toCurrency} = active;
     const isExchangeButtonDisabled = balance[fromCurrency] < fromValue ||
       balance[fromCurrency] === 0 ||
-      fromValue === 0;
+      fromValue === 0 ||
+      fromValue === '';
 
     const renderSuccessModal = modal.success && (
       <SuccessModal

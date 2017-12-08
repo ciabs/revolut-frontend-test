@@ -103,7 +103,7 @@ describe('Exchange', () => {
     const actual = store.getState();
 
     expect(actual.balance).toEqual({
-      EUR: 11.36,
+      EUR: 11.355,
       GBP: 5,
       USD: 0,
       lastExchange: {

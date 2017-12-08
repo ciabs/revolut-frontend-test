@@ -55,7 +55,7 @@ ConvertTo.propTypes = {
   balance: PropTypes.object.isRequired,
   rates: PropTypes.object,
   toCurrency: PropTypes.string.isRequired,
-  toValue: PropTypes.number.isRequired,
+  toValue: PropTypes.any.isRequired,
   handleToCurrencyChange: PropTypes.func.isRequired,
   handleToValueChange: PropTypes.func.isRequired,
   handleExchange: PropTypes.func.isRequired,

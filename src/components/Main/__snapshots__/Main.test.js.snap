@@ -272,12 +272,10 @@ exports[`Main has a valid snapshot 1`] = `
       <input
         className="sc-ifAKCX fqfKEA"
         disabled={true}
-        min="0"
         name="fromValue"
         onChange={[Function]}
         placeholder="0"
-        type="number"
-        value={-1}
+        value="-1"
       />
     </div>
     <div
@@ -551,11 +549,9 @@ exports[`Main has a valid snapshot 1`] = `
       <input
         className="sc-ifAKCX gdDkSd"
         disabled={true}
-        min="0"
         name="toValue"
         onChange={[Function]}
         placeholder="0"
-        type="number"
         value={2}
       />
     </div>

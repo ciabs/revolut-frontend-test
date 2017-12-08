@@ -5,9 +5,9 @@ describe('active reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       fromCurrency: 'GBP',
-      fromValue: 0.00,
+      fromValue: '',
       toCurrency: 'EUR',
-      toValue: 0.00
+      toValue: ''
     })
   });
 
@@ -30,7 +30,7 @@ describe('active reducer', () => {
     ).toEqual({
       fromValue: 1,
       toCurrency: 'EUR',
-      toValue: 1.14
+      toValue: 1.1355
     });
   });
 });

@@ -1,6 +1,6 @@
 import * as ActionTypes from './types';
 import {showSuccessModal} from './index';
-import {setFromValue, setToValue} from './active.actions';
+import {setFromValue} from './active.actions';
 
 export const exchange = () => (dispatch, getState) => {
   const state = getState();
@@ -12,6 +12,5 @@ export const exchange = () => (dispatch, getState) => {
   });
 
   dispatch(showSuccessModal(true));
-  dispatch(setFromValue(0));
-  dispatch(setToValue(0));
+  dispatch(setFromValue(''));
 };

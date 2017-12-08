@@ -269,12 +269,10 @@ exports[`ConvertFrom has a valid snapshot 1`] = `
     <input
       className="sc-bdVaJa ieueMs"
       disabled={true}
-      min="0"
       name="fromValue"
       onChange={[Function]}
       placeholder="0"
-      type="number"
-      value={-12}
+      value="-12"
     />
   </div>
   <div

@@ -1,15 +1,15 @@
 import initialState from './initial.state';
 import * as types from '../actions/types';
-import {convertToTwoDigitsNumber} from '../helpers/string.helper';
 
 const setFromValue = (state, action) => {
   const {toCurrency} = state;
   const {fromValue, rates} = action;
   const toValue = fromValue * rates.rates[toCurrency];
+  console.log('fromValue', fromValue); //eslint-disable-line
 
   return Object.assign({}, state, {
-    fromValue: convertToTwoDigitsNumber(action.fromValue),
-    toValue: convertToTwoDigitsNumber(toValue)
+    fromValue: action.fromValue,
+    toValue: toValue
   });
 };
 
@@ -18,10 +18,9 @@ const setToValue = (state, action) => {
   const {toCurrency} = state;
   const fromValue = toValue / rates.rates[toCurrency];
 
-
   return Object.assign({}, state, {
-    toValue: convertToTwoDigitsNumber(action.toValue),
-    fromValue: convertToTwoDigitsNumber(fromValue)
+    toValue: action.toValue,
+    fromValue: fromValue
   });
 };
 
@@ -36,7 +35,7 @@ const setFromCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     fromCurrency: action.fromCurrency,
-    toValue: convertToTwoDigitsNumber(toValue),
+    toValue: toValue,
     toCurrency: toCurrency
   });
 };
@@ -48,7 +47,7 @@ const setToCurrency = (state, action) => {
 
   return Object.assign({}, state, {
     toCurrency: action.toCurrency,
-    toValue: convertToTwoDigitsNumber(toValue),
+    toValue: toValue,
     fromCurrency
   });
 };

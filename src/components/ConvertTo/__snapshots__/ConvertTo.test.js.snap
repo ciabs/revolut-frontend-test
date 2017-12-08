@@ -254,11 +254,9 @@ exports[`ConvertTo has a valid snapshot 1`] = `
     <input
       className="sc-bdVaJa hxmIEV"
       disabled={true}
-      min="0"
       name="toValue"
       onChange={[Function]}
       placeholder="0"
-      type="number"
       value={12}
     />
   </div>
