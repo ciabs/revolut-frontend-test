@@ -2,14 +2,14 @@
 
 exports[`SuccessModal has a valid snapshot 1`] = `
 <div
-  className="sc-bdVaJa bdPopR"
+  className="sc-bwzfXH bZfzWm"
 >
   <div
-    className="sc-bwzfXH fybyaO"
+    className="sc-htpNat hdalJI"
   >
     <div>
       <img
-        className="sc-htpNat kmFITi"
+        className="sc-bxivhb eXfqpr"
         src="check.svg"
       />
     </div>
@@ -20,7 +20,7 @@ exports[`SuccessModal has a valid snapshot 1`] = `
     </span>
   </div>
   <button
-    className="sc-bxivhb hNbXFO"
+    className="sc-bdVaJa cgzLHg"
     disabled={false}
     onClick={[Function]}
   >

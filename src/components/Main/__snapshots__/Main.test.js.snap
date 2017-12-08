@@ -2,10 +2,10 @@
 
 exports[`Main has a valid snapshot 1`] = `
 <div
-  className="sc-bdVaJa ehbYjZ"
+  className="sc-dnqmqq bDKMWK"
 >
   <div
-    className="sc-iwsKbI gpzLhp"
+    className="sc-htoDjs jWLzgb"
   >
     <span
       aria-hidden={true}
@@ -23,7 +23,7 @@ exports[`Main has a valid snapshot 1`] = `
       title={null}
     />
     <div
-      className="sc-bwzfXH MKmUa"
+      className="sc-iwsKbI cFpGCb"
     >
       <div
         className={undefined}
@@ -270,7 +270,7 @@ exports[`Main has a valid snapshot 1`] = `
         </div>
       </div>
       <input
-        className="sc-bZQynM cJWkqu"
+        className="sc-ifAKCX fqfKEA"
         disabled={true}
         min="0"
         name="fromValue"
@@ -281,14 +281,14 @@ exports[`Main has a valid snapshot 1`] = `
       />
     </div>
     <div
-      className="sc-gzVnrw kDpknI"
+      className="sc-EHOje eTtMWJ"
     >
       Balance: 
       €
       0.00
     </div>
     <div
-      className="sc-htoDjs lezqkm"
+      className="sc-bZQynM gChtAF"
     >
       <div>
         <span
@@ -302,7 +302,7 @@ exports[`Main has a valid snapshot 1`] = `
     className="sc-gZMcBi dPQFrM"
   >
     <div
-      className="sc-bwzfXH MKmUa"
+      className="sc-iwsKbI cFpGCb"
     >
       <div
         className={undefined}
@@ -549,7 +549,7 @@ exports[`Main has a valid snapshot 1`] = `
         </div>
       </div>
       <input
-        className="sc-bZQynM ksAmJg"
+        className="sc-ifAKCX gdDkSd"
         disabled={true}
         min="0"
         name="toValue"
@@ -560,14 +560,14 @@ exports[`Main has a valid snapshot 1`] = `
       />
     </div>
     <div
-      className="sc-gzVnrw kDpknI"
+      className="sc-EHOje eTtMWJ"
     >
       Balance: 
       £
       15.00
     </div>
     <button
-      className="sc-EHOje loVsjv"
+      className="sc-bdVaJa cgzLHg"
       disabled={true}
       onClick={[Function]}
     >

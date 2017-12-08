@@ -2,10 +2,10 @@
 
 exports[`ConvertTo has a valid snapshot 1`] = `
 <div
-  className="sc-htpNat iXuwug"
+  className="sc-bxivhb gbGvNe"
 >
   <div
-    className="sc-ifAKCX fOGIFb"
+    className="sc-EHOje gTGnrE"
   >
     <div
       className={undefined}
@@ -270,7 +270,7 @@ exports[`ConvertTo has a valid snapshot 1`] = `
     10.00
   </div>
   <button
-    className="sc-EHOje loVsjv"
+    className="sc-htpNat cYcIMK"
     disabled={false}
     onClick={[Function]}
   >
