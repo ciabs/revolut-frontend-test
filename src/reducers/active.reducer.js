@@ -5,7 +5,6 @@ const setFromValue = (state, action) => {
   const {toCurrency} = state;
   const {fromValue, rates} = action;
   const toValue = fromValue * rates.rates[toCurrency];
-  console.log('fromValue', fromValue); //eslint-disable-line
 
   return Object.assign({}, state, {
     fromValue: action.fromValue,
