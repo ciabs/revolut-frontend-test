@@ -6,7 +6,7 @@
 
 ### Notes
 
-* Every 10 minutes the app checks FX rates at https://api.fixer.io/latest, an open-source API for current and historical foreign exchange rates.
+* Every 10 minutes the app checks FX rates on https://api.fixer.io/, an open-source API for current and historical foreign exchange rates.
 * If there are no FX rates data available all the input text fields are disabled.
 * Tha initial balance is 15GBP, 0EUR and 0USD.
 * If there are not enough founds to convert or if the initial value is 0, the exchange button is disabled.
